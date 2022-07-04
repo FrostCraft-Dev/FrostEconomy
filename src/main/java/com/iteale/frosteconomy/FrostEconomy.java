@@ -1,8 +1,9 @@
-package com.example.examplemod;
+package com.iteale.frosteconomy;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,11 +19,14 @@ import org.slf4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("frosteconomy")
+@Mod(FrostEconomy.MODID)
 public class FrostEconomy
 {
+    public static final String MODID = "frosteconomy";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    public static final CreativeModeTab TAB_ECO = new FrostEconomyTab();
 
     public FrostEconomy()
     {
