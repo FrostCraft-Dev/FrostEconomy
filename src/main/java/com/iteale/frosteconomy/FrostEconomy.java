@@ -1,5 +1,6 @@
 package com.iteale.frosteconomy;
 
+import com.iteale.frosteconomy.registries.ItemRegistry;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -36,6 +37,12 @@ public class FrostEconomy
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+
+        // BlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        // BlockRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        // BlockEntityRegistry.BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        // MenuTypeRegistry.MENUS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
